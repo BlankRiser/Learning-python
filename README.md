@@ -1,5 +1,6 @@
 # Learning Python
 All the details about the resources I use to learn Python.
+
 For machine learning, use [Google Collab](https://colab.research.google.com/)
 
 [Modules](https://1drv.ms/w/s!ApoGskht1cyzmVlVDHbh5Vt_ihoc)
