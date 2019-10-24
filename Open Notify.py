@@ -4,7 +4,7 @@ import requests
 response = requests.get("http://api.open-notify.org/astros.json")
 
 # if prints 200: success or else failure
-print("Status code : ", response.status_code)
+# print("Status code : ", response.status_code)
 
 # The API gives back json file
 jsonData = response.json()
@@ -28,7 +28,7 @@ key 'people' has dictionary enclosed within a list
 
 # Finding number of people aboard
 noOfPeople = jsonData['number']
-print("Number of people : ", noOfPeople)
+print("Number of people : ", noOfPeople, "and they are ")
 
 # Finding names and the crafts they are in
 peopleDetails = jsonData['people']
@@ -40,4 +40,4 @@ for i in range(0, len(peopleDetails)):
 
 # Prints names and crafts
 for i in range(0, len(names)):
-    print("Name : ", names[i], " Craft : ", crafts[i])
+    print("Name : ", names[i], " in Craft : ", crafts[i])
