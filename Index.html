@@ -1,0 +1,671 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>API Projects</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0949ce89-9067-4382-82c4-3d4ce5ba1f6c" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1529078155058-5d716f45d604?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1049&amp;q=80" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://image.flaticon.com/icons/svg/1753/1753826.svg"/></div><h1 class="page-title">API Projects</h1></header><div class="page-body"><p id="bc733491-b3fc-47d7-b644-526aea7c259b" class="">
+</p><nav id="946e0e0b-748e-4577-8bf1-9ce932fa65b8" class="block-color-yellow_background table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ee35b63d-48bd-4f45-8bfc-0dc40773198f">API</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2a8a8af2-3ff7-46b9-8aef-396617d2f5a0">Making API Requests in Python</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c626a9a1-9610-4e7d-bfa7-a5a2932250e7">API Status Codes</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1c6449e1-6bbe-4bcf-9060-e944b706c560">Weather API</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#71abd299-359c-4964-8f43-ee133a928a80">Open Notify API</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#43507264-7e14-4158-87bd-be5f52bb6142">Code</a></div></nav><figure id="26ded57d-b4e9-4f5f-80b5-b034fb25947e"><div class="block-color-blue bookmark source"><a href="https://www.dataquest.io/blog/python-api-tutorial/">Python API Tutorial: Getting Started with APIs - Dataquest</a><br/><a class="bookmark-href" href="https://www.dataquest.io/blog/python-api-tutorial/">https://www.dataquest.io/blog/python-api-tutorial/</a></div></figure><figure id="a5b01aee-b4a8-4a98-b737-7cf30564fccb"><div class="bookmark source"><a href="https://realpython.com/python-requests/">Python&#x27;s Requests Library (Guide) - Real Python</a><br/><a class="bookmark-href" href="https://realpython.com/python-requests/">https://realpython.com/python-requests/</a></div></figure><figure id="f195f1fd-60b1-4423-8c78-3f85a1ecd5f7"><div class="bookmark source"><a href="https://medium.com/black-tech-diva/hide-your-api-keys-7635e181a06c">How to Hide Your API Keys in Python 🔑</a><br/><a class="bookmark-href" href="https://medium.com/black-tech-diva/hide-your-api-keys-7635e181a06c">https://medium.com/black-tech-diva/hide-your-api-keys-7635e181a06c</a></div></figure><h1 id="ee35b63d-48bd-4f45-8bfc-0dc40773198f" class="block-color-blue">API</h1><hr id="300253cc-31a1-49c6-8254-d434cc7a6aa9"/><ul id="6ab1e666-9295-45fb-bf34-fd5917116ca2" class="bulleted-list"><li>An API, or Application Programming Interface, is a server that you can use to retrieve and send data to using code. APIs are most commonly used to retrieve data.</li></ul><ul id="3b887541-614e-4f79-88fe-f697caae0e54" class="bulleted-list"><li>When we want to receive data from an API, we need to make a <strong>request</strong>. Requests are used all over the web. For instance, when you visit Google, your web browser makes a request to the Google web server, which responds with the content of the web page.</li></ul><ul id="3938008b-3f6c-4e6b-84eb-456638cb6ebb" class="bulleted-list"><li>API requests work in exactly the same way – you make a request to an API server for data, and it responds to your request.</li></ul><h2 id="2a8a8af2-3ff7-46b9-8aef-396617d2f5a0" class="block-color-blue">Making API Requests in Python</h2><ul id="527a9fdc-1ae9-4584-b9b3-77a267c5b215" class="bulleted-list"><li>In order to work with APIs in Python, we need tools that will make those requests. In Python, the most common library for making requests and working with APIs is the requests library. The requests library isn’t part of the standard Python library, so you’ll need to install it to get started.</li></ul><pre id="1fec7b00-3985-407a-89aa-136df5058709" class="code"><code>pip install requests
+# if using Conda
+conda install requests</code></pre><ul id="0a7ee628-024c-4fa0-a658-b721be937fd5" class="bulleted-list"><li>There are many different types of requests. The most commonly used one, a <strong>GET</strong> request, is used to retrieve data.</li></ul><ul id="95589f2a-37eb-49d7-88b3-bd1fdde41fbc" class="bulleted-list"><li>When we make a request, the response from the API comes with a <strong>response code</strong> which tells us whether our request was successful. Response codes are important because they immediately tell us if something went wrong.</li></ul><ul id="659f73a9-705e-47d8-ab62-28bbbfbd542e" class="bulleted-list"><li>To make a ‘GET’ request, we’ll use the <code>requests.get()</code> function, which requires one argument — the URL we want to make the request to.</li></ul><pre id="f203a44e-6c9a-4d08-8628-dc5cef196f1b" class="code"><code>import requests
+response = requests.get(&quot;http://api.open-notify.org/this-api-doesnt-exist&quot;)
+print(response)
+# output : &lt;Response [404]&gt;
+priint(response.status_code)
+# output :404</code></pre><p id="ef5ac4e3-6ecd-484a-9cff-bdf59c333047" class="">
+</p><h2 id="c626a9a1-9610-4e7d-bfa7-a5a2932250e7" class="block-color-blue">API Status Codes</h2><p id="10e8aab6-3f23-4659-bf95-679e0fd8109a" class="">Status codes are returned with every request that is made to a web server. Status codes indicate information about what happened with a request. Here are some codes that are relevant to GET requests.</p><ul id="cd4a551a-d706-4451-830a-8b0992d6a43f" class="bulleted-list"><li><code>200</code> : Everything went okay, and the result has been returned (if any).</li></ul><ul id="2f4d36d4-64fa-4c27-831b-56c4cd78ae8f" class="bulleted-list"><li><code>301</code> : The server is redirecting you to a different endpoint. This can happen when a company switches domain names, or an endpoint name is changed.</li></ul><ul id="ba69b544-46c0-40e9-b6ca-6e8164b5adf7" class="bulleted-list"><li><code>400</code> : The server thinks you made a bad request. This can happen when you don’t send along the right data, among other things.</li></ul><ul id="09c6bd54-8f53-4eea-8580-8b79b7572f4a" class="bulleted-list"><li><code>401</code> : The server thinks you’re not authenticated. Many APIs require login ccredentials, so this happens when you don’t send the right credentials to access an API.</li></ul><ul id="a511c9e9-bfbf-4422-8f28-e7b9679f75eb" class="bulleted-list"><li><code>403</code> : The resource you’re trying to access is forbidden: you don’t have the right permissions to see it.</li></ul><ul id="47baac75-bbb6-427c-b304-5d14860b8bb4" class="bulleted-list"><li><code>404</code> : The resource you tried to access wasn’t found on the server.</li></ul><ul id="df211037-6efa-46c5-86af-673e525c75e7" class="bulleted-list"><li><code>503</code> : The server is not ready to handle the request.</li></ul><p id="ae4185c1-662d-42e1-8aca-83e2096f4bbd" class="">You might notice that all of the status codes that begin with a ‘4’ indicate some sort of error. The first number of status codes indicate their categorization. This is useful — you can know that if your status code starts with a ‘2’ it was successful and if it starts with a ‘4’ or ‘5’ there was an error. List of all status codes can be found <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">here</a>. Basically if the status code is in it&#x27;s:</p><p id="cc064d75-bd2f-4989-bac5-b66544bdc75e" class="">200&#x27;s : success</p><p id="02609274-0dfb-40d6-8a93-bf05e9886c18" class="">300&#x27;s : Redirects</p><p id="d13a04fb-98e2-471b-8534-718a31ec9394" class="">400&#x27;s : Client errors (like accessing a page that you don&#x27;t have permission or the page is not active)</p><p id="446fc158-63cc-4530-a7e4-0a8eef835577" class="">500&#x27;s : Server errors (site crash)</p><h1 id="1c6449e1-6bbe-4bcf-9060-e944b706c560" class="block-color-purple">Weather API</h1><hr id="45d96c12-0ff1-488d-986a-b687a6eafe21"/><p id="6b341d69-a04c-4871-9a37-23132dc7de5f" class="">Using weather API from <a href="https://openweathermap.org/current">openweathermap.org</a> to access their information.</p><pre id="904c993b-1e0b-44ea-8145-e4db06e30717" class="code"><code>import requests
+import configparser
+import pandas as pd
+
+# remember to hide the API Key
+apiKey = &#x27;Inser your API Key here&#x27;
+
+# Using configparser to get the API Key
+
+
+cityName = input(&quot;Enter city name: &quot;)
+
+
+response = requests.get(
+    &quot;http://samples.openweathermap.org/data/2.5/weather?q=&quot; + cityName + &quot;&amp;appid=&quot;+apiKey)
+
+jsonData = response.json()
+
+&#x27;&#x27;&#x27;
+Structure of json file.
+{
+    &#x27;coord&#x27;: {&#x27;lon&#x27;: -0.13, &#x27;lat&#x27;: 51.51}, 
+    &#x27;weather&#x27;: [{&#x27;id&#x27;: 300, &#x27;main&#x27;: &#x27;Drizzle&#x27;, &#x27;description&#x27;: &#x27;light intensity drizzle&#x27;, &#x27;icon&#x27;: &#x27;09d&#x27;}], 
+    &#x27;base&#x27;: &#x27;stations&#x27;,
+    &#x27;main&#x27;: {&#x27;temp&#x27;: 280.32, &#x27;pressure&#x27;: 1012, &#x27;humidity&#x27;: 81, &#x27;temp_min&#x27;: 279.15, &#x27;temp_max&#x27;: 281.15},
+    &#x27;visibility&#x27;: 10000,
+    &#x27;wind&#x27;: {&#x27;speed&#x27;: 4.1, &#x27;deg&#x27;: 80},
+    &#x27;clouds&#x27;: {&#x27;all&#x27;: 90},
+    &#x27;dt&#x27;: 1485789600, 
+    &#x27;sys&#x27;: {&#x27;type&#x27;: 1, &#x27;id&#x27;: 5091, &#x27;message&#x27;: 0.0103, &#x27;country&#x27;: &#x27;GB&#x27;, &#x27;sunrise&#x27;: 1485762037, &#x27;sunset&#x27;: 1485794875},
+    &#x27;id&#x27;: 2643743,
+    &#x27;name&#x27;: &#x27;London&#x27;,
+    &#x27;cod&#x27;: 200
+} 
+&#x27;&#x27;&#x27;
+tempKel = jsonData[&#x27;main&#x27;][&#x27;temp&#x27;]
+tempCel = tempKel - 273.15
+
+mintempKel = jsonData[&#x27;main&#x27;][&#x27;temp_min&#x27;]
+tempCel = mintempKel - 273.15
+
+maxtempKel = jsonData[&#x27;main&#x27;][&#x27;temp_max&#x27;]
+tempCel = maxtempKel - 273.15
+
+humidity = jsonData[&#x27;main&#x27;][&#x27;humidity&#x27;]
+pressure = jsonData[&#x27;main&#x27;][&#x27;pressure&#x27;]
+
+print(&quot;Temperature of &quot;, cityName, &quot;: &quot;, tempCel,
+      &quot; Celcius or &quot;, tempKel, &quot; Kelvin&quot;)
+
+print(&quot;Humidity: &quot;, humidity, &quot; percent&quot;)
+
+print(&quot;Pressure: &quot;, pressure)</code></pre><p id="499aab21-6e44-4c68-808f-2bd51388af38" class="">
+</p><h1 id="71abd299-359c-4964-8f43-ee133a928a80" class="block-color-red">Open Notify API</h1><hr id="bc1e31e5-a212-4402-b64d-473e39da91cb"/><p id="bf89f0e2-8c97-4190-b49d-638355767229" class=""><a href="http://open-notify.org/">Open Notify</a> is an open source project to provide a simple programming interface for some of NASA’s awesome data. It includes <a href="http://open-notify.org/Open-Notify-API/ISS-Location-Now">current location of International space station</a>, <a href="http://open-notify.org/Open-Notify-API/People-In-Space">number of people in space</a> and <a href="http://open-notify.org/Open-Notify-API/ISS-Pass-Times">others</a>.</p><p id="0e15cb71-6539-4b03-b66c-39710ef863f3" class="">
+</p><h3 id="43507264-7e14-4158-87bd-be5f52bb6142" class="">Code</h3><pre id="63d467f8-9863-413b-a559-d8b4ea60e18c" class="code"><code>import requests
+
+# Getting the file using GET method which gets the link of the API
+response = requests.get(&quot;http://api.open-notify.org/astros.json&quot;)
+
+# if prints 200: success or else failure
+# print(&quot;Status code : &quot;, response.status_code)
+
+# The API gives back json file
+jsonData = response.json()
+
+&#x27;&#x27;&#x27;
+This is the structure of json file that you may get
+
+{&#x27;people&#x27;: [{&#x27;name&#x27;: &#x27;Christina Koch&#x27;, &#x27;craft&#x27;: &#x27;ISS&#x27;}, 
+			{&#x27;name&#x27;: &#x27;Alexander Skvortsov&#x27;, &#x27;craft&#x27;: &#x27;ISS&#x27;}, 
+			{&#x27;name&#x27;: &#x27;Luca Parmitano&#x27;, &#x27;craft&#x27;: &#x27;ISS&#x27;}, 
+			{&#x27;name&#x27;: &#x27;Andrew Morgan&#x27;, &#x27;craft&#x27;: &#x27;ISS&#x27;}, 
+			{&#x27;name&#x27;: &#x27;Oleg Skripochka&#x27;, &#x27;craft&#x27;: &#x27;ISS&#x27;}, 
+			{&#x27;name&#x27;: &#x27;Jessica Meir&#x27;, &#x27;craft&#x27;: &#x27;ISS&#x27;}],
+&#x27;number&#x27;: 6, 
+&#x27;message&#x27;: &#x27;success&#x27;}
+
+
+From above we can conclude that there are 3 keys &#x27;people&#x27;,&#x27;number&#x27;,and &#x27;message&#x27;. 
+key &#x27;people&#x27; has dictionary enclosed within a list
+&#x27;&#x27;&#x27;
+
+# Finding number of people aboard
+noOfPeople = jsonData[&#x27;number&#x27;]
+print(&quot;Number of people : &quot;, noOfPeople, &quot;and they are &quot;)
+
+# Finding names and the crafts they are in
+peopleDetails = jsonData[&#x27;people&#x27;]
+names = []
+crafts = []
+for i in range(0, len(peopleDetails)):
+    names.append(peopleDetails[i][&#x27;name&#x27;])
+    crafts.append(peopleDetails[i][&#x27;craft&#x27;])
+
+# Prints names and crafts
+for i in range(0, len(names)):
+    print(&quot;Name : &quot;, names[i], &quot; in Craft : &quot;, crafts[i])</code></pre><p id="6f57e9aa-06fb-49d2-9fa3-a1d270c4cf93" class="">
+</p></div></article></body></html>
