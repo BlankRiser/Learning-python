@@ -10,7 +10,6 @@ This repository will contain all the source code of python projects that I work 
 
 # Basics of Python
 
-
 - Developed by Guido Van Rossum and name it after the circus "Monty Python"
 - Officially launched in 1991 in Netherlands
 - It is derived from CPP, Perl, Modulo 3, and successor of ABC Language.
@@ -161,7 +160,7 @@ This repository will contain all the source code of python projects that I work 
     b="rama"
     a > b # True, coz t > m, it compares char from L to R
     a < b # False, same for others
-    ```
+```
 
 - ***Control Flow Statement:***
     1. Conditional: If, Else, Elif
