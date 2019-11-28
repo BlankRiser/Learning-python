@@ -8,13 +8,8 @@ This repository will contain all the source code of python projects that I work 
 
 [Setting up Sublime Text 3](https://realpython.com/setting-up-sublime-text-3-for-full-stack-python-development/#themes)
 
-# Python by ATS LSP
+# Basics of Python
 
-Created: Nov 26, 2019 9:55 AM
-Last Edited By: Ram Shankar Choudhary
-Last Edited Time: Nov 28, 2019 9:24 AM
-Status: Ongoing
-Type: Certification
 
 - Developed by Guido Van Rossum and name it after the circus "Monty Python"
 - Officially launched in 1991 in Netherlands
@@ -33,17 +28,18 @@ Type: Certification
     8. Flavors of python : Cython, IronPython, Jython.
 
 ## Code
-
 ---
 
 1. To know the amount of keywords in python
-
+```python
     import keyword
     keyword.kwlist
     # Total of 33
+```
 
 - **Datatypes**: 14 types, 5 are fundamental : Int, Float, String, Boolean, Complex. The others are: List, Tuple, Dictionary, Set, Frozen Set, Bytes, Byte Array, Range, None.
 
+    ```python
     a=10
     print(type(a))
     #type lets you know the type of datatype a variable is associated with
@@ -107,11 +103,11 @@ Type: Certification
     range # (start, stop[, step])
     a= range(10) # 0,1,2,3,4,5,6,7,8,9
     type(a) # range(0,9)
-    
-    
+    ```
 
 - **Input**
 
+```python
     a = input("Give input: ")
     # a gets the input as str
     
@@ -126,9 +122,10 @@ Type: Certification
     # i/p: 1,2 or (1,2) type(d): tuple
     e = eval(input("give list "))
     # i/p: [1,2] type(e): list
+```
 
 - **Operations and Operators**
-
+```python
     '''
     Arithmetic Operators
     Relational/Comparison Operators
@@ -164,7 +161,7 @@ Type: Certification
     b="rama"
     a > b # True, coz t > m, it compares char from L to R
     a < b # False, same for others
-    
+    ```
 
 - ***Control Flow Statement:***
     1. Conditional: If, Else, Elif
