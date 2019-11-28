@@ -8,7 +8,6 @@ This repository will contain all the source code of python projects that I work 
 
 [Setting up Sublime Text 3](https://realpython.com/setting-up-sublime-text-3-for-full-stack-python-development/#themes)
 
-
 # Python by ATS LSP
 
 Created: Nov 26, 2019 9:55 AM
@@ -172,7 +171,7 @@ Type: Certification
     2. Iterative: While, For
     3. Transfer: Break, Continue, Pass
 - **OOPs**
-
+```python
     class Person:
       def __init__(self, name, age):
         self.name = name
@@ -204,6 +203,8 @@ Type: Certification
     p1 = Person("John", 36)
     p1.myfunc()
 
+
+'''
  **Encapsulation: Public, Protected, Private**
 
 variable without underscore is Public : self.variable
@@ -211,7 +212,7 @@ variable without underscore is Public : self.variable
 variable with underscore is Protected : self._variable
 
 variable with 2 underscore is Private : self.__variable
-
+'''
     class Robot(object):
        def __init__(self):
           self.a = 123 # Public
@@ -222,29 +223,29 @@ variable with 2 underscore is Private : self.__variable
     print(obj.a)
     print(obj._b)
     print(obj.__c) # error occurs as it's private
+```
 
 To install packages directly from jupyter notebook, use !
-
+'''
     !pip install <package_name>
-
+'''
 ## Pandas
 
----
+```python
 
     import pandas as pd
     
     file = pd.read_csv("file.csv")
     file.head(10) # shows first n rows
     
-
+```
 ## Numpy
-
----
 
 - stands for numerical python.
 - provides powerful n-dimensional array object.
 - We use numpy array because they consume less memory, are fast and convenient.
 
+```python
     np.ones()
     np.zeros(10) #>array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
     # creaes null vector of size 10
@@ -271,3 +272,5 @@ To install packages directly from jupyter notebook, use !
     
     a = np.random.random((10,10))
     amin,amax = a.min(),a.max() # gives the max and min of a
+
+```
