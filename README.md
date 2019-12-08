@@ -9,13 +9,11 @@ This repository will contain all the source code of python projects that I work 
 [Setting up Sublime Text 3](https://realpython.com/setting-up-sublime-text-3-for-full-stack-python-development/#themes)
 
 # Basics of Python
-
-- Developed by Guido Van Rossum and name it after the circus "Monty Python"
+- Python was developed by Guido Van Rossum and named it after the “Monty Python”, a British surreal comedy group.
 - Officially launched in 1991 in Netherlands
 - It is derived from CPP, Perl, Modulo 3, and successor of ABC Language.
 - It's case sensitive.
 - It's dynamically typed language.
-- Python is limited by it's mobile application and payment gateway.
 - Features of python
     1. Simple and easy to learn
     2. Freeware and open source
@@ -27,7 +25,7 @@ This repository will contain all the source code of python projects that I work 
     8. Flavors of python : Cython, IronPython, Jython.
 
 ## Code
----
+
 
 1. To know the amount of keywords in python
 ```python
@@ -35,10 +33,9 @@ This repository will contain all the source code of python projects that I work 
     keyword.kwlist
     # Total of 33
 ```
-
 - **Datatypes**: 14 types, 5 are fundamental : Int, Float, String, Boolean, Complex. The others are: List, Tuple, Dictionary, Set, Frozen Set, Bytes, Byte Array, Range, None.
 
-    ```python
+```python
     a=10
     print(type(a))
     #type lets you know the type of datatype a variable is associated with
@@ -102,10 +99,10 @@ This repository will contain all the source code of python projects that I work 
     range # (start, stop[, step])
     a= range(10) # 0,1,2,3,4,5,6,7,8,9
     type(a) # range(0,9)
-    ```
+```    
+    
 
 - **Input**
-
 ```python
     a = input("Give input: ")
     # a gets the input as str
@@ -122,7 +119,6 @@ This repository will contain all the source code of python projects that I work 
     e = eval(input("give list "))
     # i/p: [1,2] type(e): list
 ```
-
 - **Operations and Operators**
 ```python
     '''
@@ -160,12 +156,13 @@ This repository will contain all the source code of python projects that I work 
     b="rama"
     a > b # True, coz t > m, it compares char from L to R
     a < b # False, same for others
-```
+```    
 
 - ***Control Flow Statement:***
     1. Conditional: If, Else, Elif
     2. Iterative: While, For
     3. Transfer: Break, Continue, Pass
+
 - **OOPs**
 ```python
     class Person:
@@ -198,17 +195,17 @@ This repository will contain all the source code of python projects that I work 
     
     p1 = Person("John", 36)
     p1.myfunc()
+```
+ 
 
-
-'''
- **Encapsulation: Public, Protected, Private**
+**Encapsulation: Public, Protected, Private**
 
 variable without underscore is Public : self.variable
 
 variable with underscore is Protected : self._variable
 
 variable with 2 underscore is Private : self.__variable
-'''
+```python
     class Robot(object):
        def __init__(self):
           self.a = 123 # Public
@@ -222,10 +219,16 @@ variable with 2 underscore is Private : self.__variable
 ```
 
 To install packages directly from jupyter notebook, use !
-'''
-    !pip install <package_name>
-'''
-## Pandas
+`!pip install <package_name>`
+
+**Warning**
+
+To ignore warnings
+```python
+    import warnings
+    warnings.filterwarnings("ignore")
+```
+# Pandas
 
 ```python
 
@@ -234,8 +237,42 @@ To install packages directly from jupyter notebook, use !
     file = pd.read_csv("file.csv")
     file.head(10) # shows first n rows
     
-```
-## Numpy
+    file.shape # no. of rows and columns of the file
+    file.describe() # does all statistics operations on the file
+    file.isnull() # detects missing values in the file
+    file.isnull().sum() # summarizes all the missing data
+    file.dtypes # returns all the datatypes in the file 
+    file.<column name> # shows the column mentioned
+    
+    #Opening excel file
+    data = pd.read_excel('Dataset.xlsx',Sheet_name = "sheet1")
+    
+    #Check the total number of rows with incomplete data
+    file.isnull().sum()
+    
+    #Remove row with incomplete data
+    file.dropna(inplace=True) # inplace makes the operaion permanent on file
+    
+    # Remove column
+    file.drop(columns="[<Column_Name1>,<cn2>,<cn3>]", inplace = True, axis =1)
+    
+    # Filling missing data using mean and mode
+    file['<column1>'].fillna(file['<column1>'].mode(),inplace=True)
+    file['<column2>'].fillna(file['<column2>'].mode(),inplace=True) # both mean and mode is done for float columns
+    file['<column2>'].fillna(file['<column2>'].mean(),inplace=True) # both mean and mode is done for float columns
+    file.isnull().sum() # will show all columns are filled and 0 null columns
+    
+    # plotting a graph
+    #bar graph
+    graph = file['<column name>'].value_counts().plot(kind = 'bar',figsize = (14,8), title = "title of graph")
+    graph.set_xlabel("X Label")
+    graph.set_ylabel("Y Label")
+    
+    # Other method to plot graph
+    spenders.groupby('Level')['Level'].agg('count').plot.bar()
+```    
+
+# Numpy
 
 - stands for numerical python.
 - provides powerful n-dimensional array object.
@@ -268,5 +305,94 @@ To install packages directly from jupyter notebook, use !
     
     a = np.random.random((10,10))
     amin,amax = a.min(),a.max() # gives the max and min of a
+    amean = a.mean() # mean
+    
+    #Create a 2D matrix with only 1 as borders
+    a = np.ones((10,10))
+    a[1:-1,1:-1]=0
+    '''
+    array([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1.],
+           [1., 0., 0., 0., 0., 0., 0., 0., 0., 1.],
+           [1., 0., 0., 0., 0., 0., 0., 0., 0., 1.],
+           [1., 0., 0., 0., 0., 0., 0., 0., 0., 1.],
+           [1., 0., 0., 0., 0., 0., 0., 0., 0., 1.],
+           [1., 0., 0., 0., 0., 0., 0., 0., 0., 1.],
+           [1., 0., 0., 0., 0., 0., 0., 0., 0., 1.],
+           [1., 0., 0., 0., 0., 0., 0., 0., 0., 1.],
+           [1., 0., 0., 0., 0., 0., 0., 0., 0., 1.],
+           [1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]])
+    '''
+    
+    #Undestanding NaN
+    print(0*np.nan) # nan
+    print(np.nan == np.nan) # False
+    print(np.inf > np.nan) # False
+    print(np.nan - np.nan) # nan
+    print(0.3 == 3*0.1) # False
+    
+    #Diagonal elements
+    a=np.deiag(np.arang(4))
+    a = np.diag(1+np.arange(4),k=0) 
+    # k decides from which column the first diagonal is taken
+    
+    # create a 8*8 matrix, implement a chess-board pattern
+    c = np.zeros((8,8),dtype=int)
+    c[1:2,::2] = 1
+    c[::2,1::2] = 1
+    
+    #Making an array immutable
+    a = np.zeros(10)
+    a.flags.writeable =False # makes a immutable
 
+```
+
+# Data Visualization: Matplotlib and Seaborn
+
+
+[Data Visualization using Matplotlib](https://towardsdatascience.com/data-visualization-using-matplotlib-16f1aae5ce70)
+
+[Data Visualization using Seaborn](https://towardsdatascience.com/data-visualization-using-seaborn-fc24db95a850)
+
+```python
+
+    import matplotlib.pyplot as plt
+    
+    x = np.arange(0,4*np.pi,0.1) # 0.1 is the step
+    y = np.tan(x)
+    plt.plot(x,y)
+    plt.show()
+    
+    # Scatter data
+    plt.scatter(dataX,dataY)
+    
+    # To set title and labels
+    plt.title(' Title Name ')
+    plt.xlabel('X Axis Label')
+    plt.ylabel('Y Axis Label')
+    plt.legend('<char>') # character that tell you what the point is
+    
+    #using pandas to plot
+    file.plot(kind = 'scatter', x='<column1>', y= '<column2>')
+    plt.show()
+    
+    # visualizing using Seaborn
+    import seaborn as sns
+    sns.FacetGrid(data=file, hue ='<columnName>',height = 5).map(plt.scatter, '<column1>','<column2>').add_legend()
+    plt.show()
+    
+    #boxplot
+    sns.boxplot(x='<column1>', y ='<column2>', data = file)
+    plt.show() # the points not in the box region are outliers
+    
+    #violin plot : denser regions are fatter & sparser regions are thinner
+    sns.violinplot(x='<column1>', y='<column2>', data = file)
+    plt.show() # this plot indicates the median value( the white middle dot )
+    
+    #kernel density plot : utlizes and creates an estimate of kernel density of the underlying features.
+    sns.FacetGrid(data = file, hue = 'Species', height = 5).map(sns.kdeplot,'PetalLengthCm').add_legend()
+    plt.show()
+    
+    #pair plot : bivariate relation between each pair of features
+    sns.pairplot(file.drop("<column1>",axis =1),hue='<column2>',height=3)
+    plt.show()
 ```
